@@ -25,9 +25,7 @@ import com.example.jameszooexcercise.presentation.uimodel.AnimalsScreenState
 @Composable
 fun AnimalSearchScreen() {
     val viewModel = hiltViewModel<AnimalsViewModel>()
-
     var screenState by remember { mutableStateOf(viewModel.animalScreenState) }
-
 
     fun submitNameButtonClick(text: String) {
         viewModel.animalsScreenEvent(AnimalScreenEvent.SearchButtonPress(text))
@@ -37,8 +35,9 @@ fun AnimalSearchScreen() {
         viewModel.animalsScreenEvent(AnimalScreenEvent.SearchButtonPress(text))
     }
 
-    Column(Modifier.fillMaxSize().safeContentPadding()) {
-
+    Column(Modifier
+        .fillMaxSize()
+        .safeContentPadding()) {
         AnimalsSearchField(
             submitNameButtonClick = { submitNameButtonClick(it) },
             submitCommonNameButtonClick = { submitCommonNameButtonClick(it) }
